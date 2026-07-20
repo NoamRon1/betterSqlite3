@@ -12,10 +12,6 @@ namespace BetterSqlite3 {
 
     public:
         BetterSqlite3(const std::string& filename): _dbFileName(filename) {
-            std::ifstream file(filename);
-            if (!file.is_open())
-                throw std::runtime_error("File not found: " + filename);
-
             int res = sqlite3_open(_dbFileName.c_str(), &_db);
 
             if (res != SQLITE_OK)
