@@ -1,4 +1,4 @@
-#include "../BetterSqlite3.h"
+#include "BetterSqlite3.h"
 #include <iostream>
 
 class User {
