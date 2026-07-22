@@ -1,27 +1,28 @@
 # Better SQLite3 Library
-A modern `c++` wrapper for the `sqlite3` api.
+A modern C++ wrapper for the SQLite3 API.
 
-# How to use
-### Add files to project
-Add this files to your project:
-* sqlite3.c/h - the old api files.
-* BetterSqlite3.cpp/h - the modern wrapper.
+# How to Use
+### Add Files to Your Project
+Include the following files in your project:
+* `sqlite3.c/h` - the original SQLite API source files.
+* `BetterSqlite3.cpp/h` - the modern wrapper.
 
-### How to use in your code
-Constract the modern sqlite object:
+### Usage
+Construct the modern SQLite object:
 ```cpp
 BetterSqlite3 database("path/to/your/database.sqlite");
 ```
-<br/>
-Send queries to the database and use the returned vector of vectors.
 
+Execute a query and use the returned vector of vectors:
 ```cpp
-auto table = database.bindAndExecuteCommand("SQL CODE", {param1, param2, ...})
+auto table = database.bindAndExecuteCommand("SQL CODE", {param1, param2, ...});
 ```
 
-> [!IMPORTANT] to use `safe parameters` make sure you include `?` for each parameter placement. Make sure to include the parameters in the vector in the right order!
+> [!IMPORTANT]
+> To use safe parameters, make sure each parameter placeholder is represented by `?` and that the parameters are provided in the vector in the correct order.
 
-> [!TIP] the query returns a vector of vectors representing rows and items inside the rows. Each item is a `std::any` object. To convert it to the desired type use `std::any_cast<type>(...)`.
+> [!TIP]
+> The query returns a `std::vector<std::vector<std::any>>`, where each inner vector represents a row and each item is stored as a `std::any`. Use `std::any_cast<type>(...)` to convert a value to the desired type.
 
 # Thanks and Info
-For questions and changes, you may contact me at: `noam2009r@gmail.com`.
+For questions or changes, please contact me at `noam2009r@gmail.com`.
