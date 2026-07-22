@@ -3,7 +3,8 @@
 
 class User {
 public:
-    User(std::string name, int age): _age(age), _name(name) {}
+    User(const std::string& name, int age): _age(age), _name(name) {}
+
     std::string getUserInformation() const {
         return "Name: " + _name + "\nAge: " + std::to_string(_age);
     }
@@ -26,8 +27,8 @@ int main() {
     Runs the SQLite command with name and age as params:
     INSERT INTO Users (name, age) VALUES (?, ?);
     */
-    std::string name = "noam";
-    int age = 17;
+    const std::string name = "noam";
+    const int age = 17;
     db.bindAndExecuteCommand("INSERT INTO Users (name, age) VALUES (?, ?);", {name, std::to_string(age)});
 
     /*
